@@ -15,13 +15,10 @@
   --grayish-blue: hsl(201, 11%, 66%);
   --white: #ffffff;
   --snow-white: hsl(0, 100%, 100%);
+  --snow-gray: #f5f7f9;
   /* Fonts */
   --font-bai-jamjuree: "Bai Jamjuree", sans-serif;
 }
-
-/* html {
-  font-size: 62, 5%;
-} */
 
 body {
   font-family: var(--font-bai-jamjuree);
@@ -58,8 +55,8 @@ body {
 /* Header - Hero */
 .hero {
   position: relative;
-  height: 100vh;
-  max-height: 100vh;
+  height: auto;
+  min-height: 100vh;
 }
 
 .hero::before {
@@ -68,10 +65,12 @@ body {
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   height: 40%;
   background-image: url("../images/bg-header-mobile.png");
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: cover;
 }
 
 .hero__container {
@@ -105,6 +104,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero__download {
@@ -204,6 +205,7 @@ body {
   max-width: 900px;
   height: 220px;
   max-height: 810px;
+  margin: 0 auto;
 }
 /* Section - Workflow */
 .workflow__main {
@@ -277,8 +279,8 @@ body {
 }
 /* Section - Clipboard */
 .clipboard__main {
-  padding-top: 4em;
-  padding-bottom: 6em;
+  min-height: 720px;
+  align-content: center;
   text-align: center;
 }
 .clipboard__resume {
@@ -310,4 +312,72 @@ body {
   text-decoration: none;
   border-radius: 38px;
   cursor: pointer;
+}
+/* Footer */
+.footer {
+  padding-top: 3.6em;
+  padding-bottom: 3.6em;
+  background-color: var(--snow-gray);
+}
+.footer__container {
+  display: grid;
+  gap: 3.5em;
+  text-align: center;
+}
+.footer__picture {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: 0 auto;
+}
+.footer__link {
+  font-size: 1.11rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--dark-grayish);
+}
+.footer__social {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+}
+.footer__social-picture {
+  width: 28px;
+  height: 28px;
+}
+/* Medias - 1024px */
+@media (min-width: 1024px) {
+  /* Styles Global */
+  .container {
+    gap: 3.5em;
+  }
+  /* Header - Hero */
+  .hero {
+    min-height: fit-content;
+  }
+  .hero::before {
+    background-image: url("../images/bg-header-desktop.png");
+  }
+  .hero__container {
+    padding-top: 8em;
+    padding-bottom: 6em;
+  }
+  .hero__title {
+    font-size: 3rem;
+  }
+  .hero__paragraph {
+    font-size: 1.6rem;
+  }
+  .hero__downloads {
+    flex-direction: row;
+  }
+  .hero__download {
+    margin: 0;
+  }
 }
